@@ -1,48 +1,76 @@
-- **TEP**: [0](https://github.com/ton-blockchain/TEPs/pull/0) *(don't change)*
-- **title**: TEP Template *(write title of TEP here)*
-- **status**: Draft
-- **type**: Meta / Core / Contract Interface *(choose one)*
-- **authors**: [Vladimir Lebedev](https://github.com/hacker-volodya) *(replace)*
-- **created**: DD.MM.YYYY *(fill with current date)*
-- **replaces**: [TEP-0](https://github.com/ton-blockchain/TEPs/blob/master/0000-template.md)
-- **replaced by**: -
-
-# Summary
-
-Which feature this document introduces? Describe it in one paragraph.
-
-# Motivation
-
-Which problem we address? Why it is important to make a new TEP?
-
-# Guide
-
-Explain this document in simple language, as if you were teaching it to another developers. Give examples how your feature will work in real life.
-
-# Specification
-
-This section describes your feature formally. It contains requirements, which must be followed in order to implement your TEP. To keep things formal, it is convenient to follow [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt). You should include following text at the beginning of this section:
-
-> The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in RFC 2119.
-
-# Drawbacks
-
-Why should we *not* do this?
-
-# Rationale and alternatives
-
-- Why is this design the best in the space of possible designs?
-- What other designs have been considered and what is the rationale for not choosing them?
-- What is the impact of not doing this?
-
-# Prior art
-
-Discuss prior art, both the good and the bad, in relation to this proposal. How the problem stated in "Motivation" section was solved in another blockchains? This section encourages you as an author to learn from others' mistakes. Feel free to include links to blogs, books, Durov's whitepapers, etc.
-
-# Unresolved questions
-
-If there are some questions that have to be discussed during review process or to be solved during implementation of this TEP, write it here.
-
-# Future possibilities
-
-Do you have ideas, which things can be implemented on top of this TEP later? Write possible ideas of new TEPs, which are related to this TEP.
+{
+  "events": [
+    {
+      "event_id": "6bd1be6c510c999cde1ba6f7905c9b5ad5a993ee8f3d155ea68f17a7785d4033",
+      "account": {
+        "address": "0:e69ae838b4a5b72af74c978642a1acfcf0e7e1a7e600c903b41acffd02567964",
+        "is_scam": false,
+        "is_wallet": false
+      },
+      "timestamp": 1724714699,
+      "actions": [
+        {
+          "type": "JettonTransfer",
+          "status": "ok",
+          "JettonTransfer": {
+            "sender": {
+              "address": "0:1f5806c73d03bbc96eb7eebf16067f1f2e8e270cfa16d57001aa9eaf7456f008",
+              "name": "Wallet in Telegram",
+              "is_scam": false,
+              "icon": "https://cache.tonapi.io/imgproxy/2_S8J7W2ZvbksgpKkzdenfkn5uqPoMTqsIxTwMUwkYc/rs:fill:200:200:1/g:no/aHR0cHM6Ly90b24uYW1zMy5kaWdpdGFsb2NlYW5zcGFjZXMuY29tL3RvbmFwaS1taXNjL2xvZ29zL3dhbGxldF9ib3RfMjg4LnN2Zw.webp",
+              "is_wallet": true
+            },
+            "recipient": {
+              "address": "0:e69ae838b4a5b72af74c978642a1acfcf0e7e1a7e600c903b41acffd02567964",
+              "is_scam": false,
+              "is_wallet": false
+            },
+            "senders_wallet": "0:b7f5cd75f68a8f91a07e7e203cfc429f7a33f6e3f232282344c8a154b2f5ec7c",
+            "recipients_wallet": "0:9a896585ffe95ff9dbc8b1573dc9d7b8aef2efa7752f5a5ab6ec4293ad78c230",
+            "amount": "4756400",
+            "jetton": {
+              "address": "0:b113a994b5024a16719f69139328eb759596c38a25f59028b146fecdc3621dfe",
+              "name": "Tether USD",
+              "symbol": "USD₮",
+              "decimals": 6,
+              "image": "https://cache.tonapi.io/imgproxy/T3PB4s7oprNVaJkwqbGg54nexKE0zzKhcrPv8jcWYzU/rs:fill:200:200:1/g:no/aHR0cHM6Ly90ZXRoZXIudG8vaW1hZ2VzL2xvZ29DaXJjbGUucG5n.webp",
+              "verification": "whitelist"
+            }
+          },
+          "simple_preview": {
+            "name": "Jetton Transfer",
+            "description": "Transferring 4.7564 Tether USD",
+            "value": "4.7564 Tether USD",
+            "value_image": "https://cache.tonapi.io/imgproxy/T3PB4s7oprNVaJkwqbGg54nexKE0zzKhcrPv8jcWYzU/rs:fill:200:200:1/g:no/aHR0cHM6Ly90ZXRoZXIudG8vaW1hZ2VzL2xvZ29DaXJjbGUucG5n.webp",
+            "accounts": [
+              {
+                "address": "0:1f5806c73d03bbc96eb7eebf16067f1f2e8e270cfa16d57001aa9eaf7456f008",
+                "name": "Wallet in Telegram",
+                "is_scam": false,
+                "icon": "https://cache.tonapi.io/imgproxy/2_S8J7W2ZvbksgpKkzdenfkn5uqPoMTqsIxTwMUwkYc/rs:fill:200:200:1/g:no/aHR0cHM6Ly90b24uYW1zMy5kaWdpdGFsb2NlYW5zcGFjZXMuY29tL3RvbmFwaS1taXNjL2xvZ29zL3dhbGxldF9ib3RfMjg4LnN2Zw.webp",
+                "is_wallet": true
+              },
+              {
+                "address": "0:b113a994b5024a16719f69139328eb759596c38a25f59028b146fecdc3621dfe",
+                "name": "usdt-minter.ton",
+                "is_scam": false,
+                "is_wallet": false
+              }
+            ]
+          },
+          "base_transactions": [
+            "48a063806d2e790336e84f07849b19c42ea4f43212b0fa66ee2b539cf9570161",
+            "2672393609ff8457840e09ad4b2358473529dd6a2822bbb48131085655260785",
+            "ecbb0df3a52bd592b89dda2ea47aafb37acff33134bed6706fb8dd9936efdd9d",
+            "800d8217dd0500c7bfa3b34765be49b16b43414ab45b7cebde7e8a7e56a04013"
+          ]
+        }
+      ],
+      "is_scam": false,
+      "lt": 48750846000007,
+      "in_progress": false,
+      "extra": 1
+    }
+  ],
+  "next_from": 48750846000007
+}
