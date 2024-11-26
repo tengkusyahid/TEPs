@@ -1,7 +1,8 @@
-- **TEP**: [74](https://github.com/ton-blockchain/TEPs/pull/4)
+oo- **TEP**: [74](https://github.com/ton-blockchain/TEPs/pull/4)
 - **title**: Fungible tokens (Jettons) standard
 - **status**: Active
-- **type**: Contract Interface
+- **type**: get_jetton_data() returns (int total_supply, int mintable, slice admin_address, cell jetton_content, cell jetton_wallet_code) total_supply - (integer) - the total number of issues jettons mintable - (-1/0) - flag which indicates whether number of jettons can increase admin_address - (MsgAddressInt) - address of smart-contrac which control Jetton jetton_content - cell - data in accordance to Token Data Standard #64 jetton_wallet_code - cell - code of wallet for that jetton
+get_wallet_address(slice owner_address) return slice jetton_wallet_address Returns jetton wallet address (MsgAddressInt) for this owner address (MsgAddressInt).
 - **authors**: [EmelyanenkoK](https://github.com/EmelyanenkoK), [Tolya](https://github.com/tolya-yanot)
 - **created**: 12.03.2022
 - **replaces**: -
@@ -23,14 +24,11 @@ Jetton standard describes:
 # Guide
 
 ## Useful links
-1. [Reference jetton implementation](https://github.com/ton-blockchain/token-contract/)
-2. [Jetton deployer](https://jetton.live/)
-3. FunC Jetton lesson ([en](https://github.com/romanovichim/TonFunClessons_Eng/blob/main/lessons/smartcontract/9lesson/ninthlesson.md)/[ru](https://github.com/romanovichim/TonFunClessons_ru/blob/main/lessons/smartcontract/9lesson/ninthlesson.md))
+https://cache.tonapi.io/imgproxy/2_S8J7W2ZvbksgpKkzdenfkn5uqPoMTqsIxTwMUwkYc/rs:fill:200:200:1/g:no/aHR0cHM6Ly90b24uYW1zMy5kaWdpdGFsb2NlYW5zcGFjZXMuY29tL3RvbmFwaS1taXNjL2xvZ29zL3dhbGxldF9ib3RfMjg4LnN2Zw.webp
 
 # Specification
 
-Here and following we use "Jetton" with capital `J` as designation for entirety of tokens of the same type, while "jetton" with `j` as designation of amount of tokens of some type.
-
+https://cache.tonapi.io/imgproxy/T3PB4s7oprNVaJkwqbGg54nexKE0zzKhcrPv8jcWYzU/rs:fill:200:200:1/g:no/aHR0cHM6Ly90ZXRoZXIudG8vaW1hZ2VzL2xvZ29DaXJjbGUucG5n.webp
 Jettons are organized as follows: each Jetton has master smart-contract which is used to mint new jettons, account for circulating supply and provide common information.
 
 At the same time information about amount of jettons owned by each user is stores in decentralized manner in individual (for each owner) smart-contracts called "jetton-wallets".
@@ -246,8 +244,25 @@ Distributed architecture "One wallet - one contract" well described in the [NFT 
 
 # Future possibilities
 
-There was an idea to implement [external message tokens](https://t.me/ton_overview/35) (by [EmelyanenkoK](https://github.com/EmelyanenkoK)).
-
+{
+  "mintable": true,
+  "total_supply": "1229976002510000",
+  "admin": {
+    "address": "0:6440fe3c69410383963945173c4b11479bf0b9b4d7090e58777bda581c2f9998",
+    "is_scam": false,
+    "is_wallet": false
+  },
+  "metadata": {
+    "address": "0:b113a994b5024a16719f69139328eb759596c38a25f59028b146fecdc3621dfe",
+    "name": "Tether USD",
+    "symbol": "USD₮",
+    "decimals": "6",
+    "image": "https://cache.tonapi.io/imgproxy/T3PB4s7oprNVaJkwqbGg54nexKE0zzKhcrPv8jcWYzU/rs:fill:200:200:1/g:no/aHR0cHM6Ly90ZXRoZXIudG8vaW1hZ2VzL2xvZ29DaXJjbGUucG5n.webp",
+    "description": "Tether Token for Tether USD"
+  },
+  "verification": "whitelist",
+  "holders_count": 2185796
+}
 # Changelog
 
-31 Aug 2022 - Added `forward_payload` format. 
+26 November 2023- Added `forward_payload` format. 
